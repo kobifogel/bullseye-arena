@@ -1,0 +1,5 @@
+{
+  "name": "Bullseye Arena",
+  "description": "A fun and colorful code-breaking game inspired by Mastermind and Clash Royale. Challenge the computer or a friend on the same device to guess the secret code. Choose from numbers, colors, or animals themes!",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bullseye Arena</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0c121c" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      @keyframes fade-in-scale {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fade-in-scale {
+        animation: fade-in-scale 0.5s ease-out forwards;
+      }
+      @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.3s ease-out forwards;
+      }
+      body {
+        font-family: 'Assistant', sans-serif;
+        background-color: #0c121c;
+        background-image: radial-gradient(circle at top, #3a2a5b 0%, #0c121c 60%);
+        background-repeat: no-repeat;
+      }
+      .font-clash {
+        font-family: 'Rubik Bubbles', cursive;
+        text-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
+      }
+      .panel-clash {
+        background-color: #1e3a8a; /* blue-800 */
+        border-radius: 1rem;
+        border-width: 4px;
+        border-color: #a5854a; /* A gold-ish color */
+        border-top-color: #fde047; /* yellow-300 */
+        border-bottom-width: 8px;
+        box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 8px 15px rgba(0,0,0,0.3);
+      }
+       .btn-clash {
+        border-radius: 0.75rem;
+        border-width: 2px;
+        border-bottom-width: 6px;
+        font-weight: bold;
+        transition: all 0.15s ease-out;
+        transform: translateY(0);
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      }
+      .btn-clash:hover:not(:disabled) {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+      }
+      .btn-clash:active:not(:disabled) {
+        transform: translateY(1px);
+        border-bottom-width: 4px;
+      }
+      .btn-clash-blue {
+        background-image: linear-gradient(to bottom, #3b82f6, #2563eb); /* blue-500 to blue-600 */
+        border-color: #1e3a8a; /* blue-800 */
+        border-top-color: #60a5fa; /* blue-400 */
+        color: white;
+      }
+      .btn-clash-green {
+        background-image: linear-gradient(to bottom, #22c55e, #16a34a); /* green-500 to green-600 */
+        border-color: #14532d; /* green-900 */
+        border-top-color: #4ade80; /* green-400 */
+        color: white;
+      }
+      .btn-clash-purple {
+        background-image: linear-gradient(to bottom, #a855f7, #9333ea); /* purple-500 to purple-600 */
+        border-color: #581c87; /* purple-900 */
+        border-top-color: #c084fc; /* purple-400 */
+        color: white;
+      }
+      .btn-clash-yellow {
+        background-image: linear-gradient(to bottom, #f59e0b, #d97706); /* amber-500 to amber-600 */
+        border-color: #92400e; /* amber-800 */
+        border-top-color: #fbbf24; /* amber-400 */
+        color: #422006;
+      }
+       .btn-clash-disabled {
+        background-image: linear-gradient(to bottom, #6b7280, #4b5563);
+        border-color: #1f2937;
+        border-top-color: #9ca3af;
+        color: #d1d5db;
+        cursor: not-allowed;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^0.14.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
